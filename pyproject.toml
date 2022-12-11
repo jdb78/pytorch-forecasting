@@ -63,11 +63,17 @@ scikit-learn = ">=0.24,<1.2"
 matplotlib = "*"
 statsmodels = "*"
 
-pytest-github-actions-annotate-failures = {version = "*", optional = true}
-networkx = {version = "^2.7.1", optional = true}
 cpflows = {version="^0.1.2", optional = true}
+numpy = "*"
+requests = "*"
+torchmetrics = "*"
+tqdm = "*"
+
 
 [tool.poetry.group.dev.dependencies]
+pytest-github-actions-annotate-failures = {version = "*", optional = true}
+networkx = {version = "^2.7.1", optional = true}
+
 pydocstyle = "^6.1.1"
 # checks and make tools
 pre-commit = "^2.20.0"
