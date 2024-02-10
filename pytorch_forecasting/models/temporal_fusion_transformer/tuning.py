@@ -1,6 +1,7 @@
 """
 Hyperparameters can be efficiently tuned with `optuna <https://optuna.readthedocs.io/>`_.
 """
+
 import copy
 import logging
 import os
@@ -23,11 +24,6 @@ from pytorch_forecasting.data import TimeSeriesDataSet
 from pytorch_forecasting.metrics import QuantileLoss
 
 optuna_logger = logging.getLogger("optuna")
-
-
-# need to inherit from callback for this to work
-class PyTorchLightningPruningCallbackAdjusted(pl.Callback, PyTorchLightningPruningCallback):
-    pass
 
 
 def optimize_hyperparameters(
@@ -129,7 +125,7 @@ def optimize_hyperparameters(
             callbacks=[
                 learning_rate_callback,
                 checkpoint_callback,
-                PyTorchLightningPruningCallbackAdjusted(trial, monitor="val_loss"),
+                PyTorchLightningPruningCallback(trial, monitor="val_loss"),
             ],
             logger=logger,
             enable_progress_bar=optuna_verbose < optuna.logging.INFO,
