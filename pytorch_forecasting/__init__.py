@@ -1,6 +1,7 @@
 """
 PyTorch Forecasting package for timeseries forecasting with PyTorch.
 """
+
 from pytorch_forecasting.data import (
     EncoderNormalizer,
     GroupNormalizer,
@@ -38,6 +39,7 @@ from pytorch_forecasting.models import (
     BaseModelWithCovariates,
     DecoderMLP,
     DeepAR,
+    LSTMModel,
     MultiEmbedding,
     NBeats,
     NHiTS,
@@ -68,6 +70,7 @@ __all__ = [
     "TemporalFusionTransformer",
     "NBeats",
     "NHiTS",
+    "LSTMModel",
     "Baseline",
     "DeepAR",
     "BaseModel",
